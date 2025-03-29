@@ -1,4 +1,5 @@
 package SavourTheFlavourTest;
+import SavourTheFlavourMain.User;
 import SavourTheFlavourMain.UserLogIn;
 import org.junit.Test;
 
@@ -10,8 +11,9 @@ public class TestUserLogIn {
     @Test
     public void testUserLogIn() {
         boolean expectedValue = true;
-        UserLogIn user = new UserLogIn("Mrittika","Hijh&hsg","mrittika@gmail.com");
-        assertEquals(expectedValue,user.logIn());
+        User user = new User("Mrittika","Hijh&hsg","mrittika210@gmail.com");
+        UserLogIn logIn = new UserLogIn();
+        assertEquals(expectedValue,logIn.logIn(user));
     }
 
 }
