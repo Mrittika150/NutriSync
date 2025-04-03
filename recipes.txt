@@ -1,0 +1,29 @@
+#Recipe
+Name: Omlete
+Type: Breakfast
+Calories: 100
+
+Ingredients (2):
+ - Eggs, 1.0  (Healthy)
+ - oil, 2.0 tbls (Unhealthy (Swap: avacado oil))
+
+Steps (1):
+ 1. Stir Fry the eggs
+
+#Recipe
+Name: Pancakes
+Type: Breakfast
+Calories: 300
+
+Ingredients (4):
+ - Flour, 1.0 cup (Unhealthy (Swap: Gluten Free Flour))
+ - Eggs, 2.0  (Healthy)
+ - Milk, 4.0 tbsp (Healthy)
+ - Sugar, 3.0 tbsp (Unhealthy (Swap: Honey))
+
+Steps (4):
+ 1. mix flour and milk together
+ 2. Beat eggs and sugar together
+ 3. now mix the flour and eggs mixture
+ 4. fry it on a pan
+

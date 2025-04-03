@@ -1,0 +1,14 @@
+#Recipe
+Name: Oatmeal
+Type: Breakfast
+Calories: 250
+
+Ingredients (2):
+ - Oats, 100.0 grams (Healthy)
+ - Sugar, 2.0 tbsp (Unhealthy (Swap: Honey))
+
+Steps (3):
+ 1. Boil water
+ 2. Add oats and sugar
+ 3. Cook for 5 mins
+
