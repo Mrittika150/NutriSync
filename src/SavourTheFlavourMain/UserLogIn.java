@@ -5,25 +5,38 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class UserLogIn{
-     public static boolean logIn(User user){
-        try(BufferedReader logInbr = new BufferedReader(new FileReader("User_Info.txt"))){
+    public static boolean logIn(User user) {
+        return checkLoginStatus(user).equals("success");
+    }
+
+    public static String checkLoginStatus(User user) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("User_info.txt"))) {
             String line;
-            while((line = logInbr.readLine()) != null){
-                String[] userInfo = line.split(",");
-                if(userInfo.length >= 2 && userInfo[1].equals(user.getPassword()) && userInfo[2].equals(user.getEmail())){
-                    System.out.println("Welcome " + user.getUserName() + "!");
-                    return true;
-                }
-                else {
-                    System.out.println("Invalid username or password");
+
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 3) {
+                    String fileUsername = parts[0].trim();
+                    String filePassword = parts[1].trim();
+                    String fileEmail = parts[2].trim();
+
+                    if (user.getUserName().equals(fileUsername)) {
+                        if (!user.getPassword().equals(filePassword)) {
+                            return "Incorrect password.";
+                        }
+                        if (!user.getEmail().equals(fileEmail)) {
+                            return "Incorrect email.";
+                        }
+                        return "success";
+                    }
                 }
             }
-        }
-        catch(IOException e){
-            System.out.println(e);
+        } catch (IOException e) {
             e.printStackTrace();
         }
-        return false;
-     }
+
+        return "Username not found.";
+    }
+
 
 }

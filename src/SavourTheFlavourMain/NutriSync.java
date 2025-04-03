@@ -67,9 +67,13 @@ public class NutriSync {
         String email = scanner.nextLine();
 
         User userAttempt = new User(username, password, email);
-        boolean success = UserLogIn.logIn(userAttempt);
-        if (success) {
+
+        String loginResult = UserLogIn.checkLoginStatus(userAttempt);
+        if (loginResult.equals("success")) {
             loggedInUser = userAttempt;
+            System.out.println("✅ Welcome " + username + "!");
+        } else {
+            System.out.println("❌ " + loginResult);
         }
     }
 
@@ -80,7 +84,8 @@ public class NutriSync {
             System.out.println("\n🍴 Main Menu (Logged in as: " + loggedInUser.getUserName() + ")");
             System.out.println("1. Add New Recipe");
             System.out.println("2. View All Recipes");
-            System.out.println("3. Logout");
+            System.out.println("3. Search Recipes");
+            System.out.println("4. Logout");
             System.out.println("0. Exit");
             System.out.print("Select an option: ");
             String choice = scanner.nextLine();
@@ -88,7 +93,8 @@ public class NutriSync {
             switch (choice) {
                 case "1" -> addNewRecipeInteractive(scanner);
                 case "2" -> viewRecipes();
-                case "3" -> {
+                case "3" -> searchRecipes(scanner);
+                case "4" -> {
                     loggedInUser = null;
                     System.out.println("🔓 Logged out.");
                     inMenu = false;
@@ -125,4 +131,45 @@ public class NutriSync {
         System.out.print("↩️ Press ENTER to return to menu...");
         new Scanner(System.in).nextLine();
     }
+    private static void searchRecipes(Scanner scanner) {
+        if (loggedInUser == null) {
+            System.out.println("🚫 You must be logged in to search recipes.");
+            return;
+        }
+
+        RecipeSearcher searcher = new RecipeSearcher(RECIPE_FILE);
+
+        System.out.println("\n🔎 Search Recipes By:");
+        System.out.println("1. Name");
+        System.out.println("2. Ingredient");
+        System.out.print("Select an option: ");
+        String option = scanner.nextLine();
+
+        System.out.print("Enter keyword: ");
+        String keyword = scanner.nextLine();
+
+        List<Recipe> results;
+        if (option.equals("1")) {
+            results = searcher.searchByName(keyword);
+        } else if (option.equals("2")) {
+            results = searcher.searchByIngredient(keyword);
+        } else {
+            System.out.println("❌ Invalid option.");
+            return;
+        }
+
+        if (results.isEmpty()) {
+            System.out.println("📭 No matching recipes found.");
+        } else {
+            System.out.println("\n🍽️ Matching Recipes:\n");
+            for (Recipe recipe : results) {
+                System.out.println(recipe);
+                System.out.println("-------------------------------------------------");
+            }
+        }
+
+        System.out.print("↩️ Press ENTER to return to menu...");
+        scanner.nextLine();
+    }
+
 }
