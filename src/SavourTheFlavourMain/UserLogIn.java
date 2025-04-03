@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class UserLogIn{
-     public boolean logIn(User user){
+     public static boolean logIn(User user){
         try(BufferedReader logInbr = new BufferedReader(new FileReader("User_Info.txt"))){
             String line;
             while((line = logInbr.readLine()) != null){

@@ -5,7 +5,7 @@ import java.io.*;
 public class UserRegistration {
     private  static final String File_Name = "User_Info.txt";
 
-    public boolean registerUser(User user) {
+    public static boolean registerUser(User user) {
         if(emailExists(user.getEmail())){
             System.out.println("Email Already registered under the name "+user.getUserName() + "!");
             return false;
@@ -27,7 +27,7 @@ public class UserRegistration {
         }
     }
 
-     public boolean emailExists(String email) {
+     public static boolean emailExists(String email) {
         try(BufferedReader emailReader = new BufferedReader(new FileReader(File_Name))){
             String line;
             while((line = emailReader.readLine()) != null){
@@ -41,7 +41,7 @@ public class UserRegistration {
             e.printStackTrace();
         } return false;
     }
-    private boolean fileEndsWithNewline(File file) throws IOException {
+    private static boolean fileEndsWithNewline(File file) throws IOException {
         try (RandomAccessFile raf = new RandomAccessFile(file, "r")) {
             if (raf.length() == 0) return true; // empty file is fine
             raf.seek(raf.length() - 1);
