@@ -85,7 +85,8 @@ public class NutriSync {
             System.out.println("1. Add New Recipe");
             System.out.println("2. View All Recipes");
             System.out.println("3. Search Recipes");
-            System.out.println("4. Logout");
+            System.out.println("4. Check BMI");
+            System.out.println("5. Logout");
             System.out.println("0. Exit");
             System.out.print("Select an option: ");
             String choice = scanner.nextLine();
@@ -94,7 +95,8 @@ public class NutriSync {
                 case "1" -> addNewRecipeInteractive(scanner);
                 case "2" -> viewRecipes();
                 case "3" -> searchRecipes(scanner);
-                case "4" -> {
+                case "4" -> BmiCalculator.evaluateBMIWithUnitChoice(scanner);
+                case "5" -> {
                     loggedInUser = null;
                     System.out.println("🔓 Logged out.");
                     inMenu = false;
