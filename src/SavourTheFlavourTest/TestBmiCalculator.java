@@ -12,7 +12,7 @@ public class TestBmiCalculator {
     }
     @Test
     public void testBMICalculation_Imperial() {
-        
+
         double weightKg = 154 * 0.453592;
         double heightCm = ((5 * 12) + 7) * 2.54;
 
