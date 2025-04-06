@@ -27,3 +27,96 @@ Steps (4):
  3. now mix the flour and eggs mixture
  4. fry it on a pan
 
+#Recipe
+Name: Avocado Toast with Poached Egg
+Type: Breakfast
+Calories: 250
+
+Ingredients (4):
+ - Whole-grain bread, 1.0 slice (Healthy)
+ - Avocado, 0.5 medium (Healthy)
+ - Egg, 1.0 large (Healthy)
+ - Olive oil, 1.0 tsp (Healthy)
+
+Steps (4):
+ 1. Toast the whole-grain bread until golden brown.
+ 2. Mash the avocado and spread it evenly over the toast.
+ 3. Poach the egg to your desired doneness.
+ 4. Place the poached egg on top of the avocado toast, drizzle with olive oil, and season with salt and pepper.
+
+#Recipe
+Name: Peanut Butter Banana Smoothie
+Type: Breakfast
+Calories: 450
+
+Ingredients (5):
+ - Banana, 1.0 medium (Healthy)
+ - Peanut butter, 2.0 tbsp (Healthy)
+ - Greek yogurt, 0.5 cup (Healthy)
+ - Almond milk, 1.0 cup (Healthy)
+ - Honey, 1.0 tsp (Healthy)
+
+Steps (2):
+ 1. Combine all ingredients in a blender.
+ 2. Blend until smooth and creamy. Serve immediately.
+
+#Recipe
+Name: Vegetable Stir-Fry with Tofu
+Type: Lunch
+Calories: 300
+
+Ingredients (7):
+ - Tofu, 1.0 cup (Healthy)
+ - Broccoli florets, 1.0 cup (Healthy)
+ - Bell pepper, 1.0 medium (Healthy)
+ - Carrot, 1.0 medium (Healthy)
+ - Soy sauce, 2.0 tbsp (Healthy)
+ - Sesame oil, 1.0 tbsp (Healthy)
+ - Garlic, 2.0 cloves (Healthy)
+
+Steps (5):
+ 1. Press the tofu to remove excess moisture, then cut into cubes.
+ 2. Heat sesame oil in a pan and sauté garlic.
+ 3. Add tofu and cook until golden brown.
+ 4. Add broccoli, bell pepper, and carrot. Stir-fry until tender-crisp.
+ 5. Pour in soy sauce, mix well, and cook for 2 more minutes.
+
+#Recipe
+Name: Classic Beef Burger
+Type: Lunch
+Calories: 700
+
+Ingredients (6):
+ - Ground beef, 6.0 oz (Unhealthy (Swap: Lean turkey patty))
+ - Burger bun, 1.0 (Unhealthy (Swap: Whole-grain bun))
+ - Cheddar cheese, 1.0 slice (Unhealthy (Swap: Low-fat cheese))
+ - Lettuce, 1.0 leaf (Healthy)
+ - Tomato, 2.0 slices (Healthy)
+ - Mayonnaise, 1.0 tbsp (Unhealthy (Swap: Greek yogurt))
+
+Steps (5):
+ 1. Form beef into a patty and season.
+ 2. Grill or pan-fry until desired doneness.
+ 3. Add cheese to patty during the last minute to melt.
+ 4. Toast the bun.
+ 5. Assemble with lettuce, tomato, patty, and mayo.
+
+#Recipe
+Name: Quinoa and Black Bean Salad
+Type: Dinner
+Calories: 350
+
+Ingredients (8):
+ - Quinoa, 1.0 cup (Healthy)
+ - Black beans, 0.5 cup (Healthy)
+ - Corn, 0.5 cup (Healthy)
+ - Cherry tomatoes, 0.5 cup (Healthy)
+ - Red onion, 0.25 cup (Healthy)
+ - Cilantro, 2.0 tbsp (Healthy)
+ - Lime juice, 2.0 tbsp (Healthy)
+ - Olive oil, 1.0 tbsp (Healthy)
+
+Steps (3):
+ 1. Combine quinoa, black beans, corn, tomatoes, onion, and cilantro.
+ 2. Mix lime juice and olive oil in a small bowl.
+ 3. Pour dressing over salad and toss well.

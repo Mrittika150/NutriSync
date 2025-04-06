@@ -1,15 +1,11 @@
-package SavourTheFlavourMain;
 
-import SavourTheFlavourMain.Ingredient;
-import SavourTheFlavourMain.Recipe;
-import SavourTheFlavourMain.RecipeManager;
-import SavourTheFlavourMain.User;
+package SavourTheFlavourMain;
 
 import java.util.*;
 import java.io.*;
 
 public class NutriSync {
-    private static final String USER_FILE = "User_info.txt";
+
     private static final String RECIPE_FILE = "recipes.txt";
 
     private static User loggedInUser = null;
@@ -82,16 +78,34 @@ public class NutriSync {
 
         while (inMenu && loggedInUser != null) {
             System.out.println("\n🍴 Main Menu (Logged in as: " + loggedInUser.getUserName() + ")");
+            System.out.println("1. Recipe Management");
+            System.out.println("2. Health Tools");
+            System.out.println("3. Account Options");
+            System.out.println("0. Exit");
+            System.out.print("Select an option: ");
+            String choice = scanner.nextLine();
+
+            switch (choice) {
+                case "1" -> recipeMenu(scanner);
+                case "2" -> healthMenu(scanner);
+                case "3" -> accountMenu(scanner);
+                case "0" -> {
+                    System.out.println("👋 Goodbye!");
+                    System.exit(0);
+                }
+                default -> System.out.println("❌ Invalid option.");
+            }
+        }
+    }
+
+    private static void recipeMenu(Scanner scanner) {
+        boolean back = false;
+        while (!back) {
+            System.out.println("\n👨‍🍳 Recipe Management");
             System.out.println("1. Add New Recipe");
             System.out.println("2. View All Recipes");
             System.out.println("3. Search Recipes");
-            System.out.println("4. Check BMI");
-            System.out.println("5. Get Calorie Goal");
-            System.out.println("6. Suggest Meals by Calorie Goal");
-            System.out.println("7. Show Healthier Ingredient Swaps");
-            System.out.println("8. Daily Health Challenge");
-            System.out.println("9. Logout");
-            System.out.println("0. Exit");
+            System.out.println("0. Back to Main Menu");
             System.out.print("Select an option: ");
             String choice = scanner.nextLine();
 
@@ -99,20 +113,51 @@ public class NutriSync {
                 case "1" -> addNewRecipeInteractive(scanner);
                 case "2" -> viewRecipes();
                 case "3" -> searchRecipes(scanner);
-                case "4" -> BmiCalculator.evaluateBMIWithUnitChoice(scanner);
-                case "5" -> CalorieGoalRecommender.recommendCalorieGoal(scanner);
-                case "6" -> MealSuggester.suggestMeals(scanner,RECIPE_FILE);
-                case "7" -> IngredientSwapper.suggestSwaps(RECIPE_FILE);
-                case "8" -> HealthChallengeProvider.showRandomChallenge();
-                case "9" -> {
+                case "0" -> back = true;
+                default -> System.out.println("❌ Invalid option.");
+            }
+        }
+    }
+
+    private static void healthMenu(Scanner scanner) {
+        boolean back = false;
+        while (!back) {
+            System.out.println("\n🧘 Health Tools");
+            System.out.println("1. Check BMI");
+            System.out.println("2. Get Calorie Goal");
+            System.out.println("3. Show Ingredient Swaps");
+            System.out.println("4. Daily Health Challenge");
+            System.out.println("0. Back to Main Menu");
+            System.out.print("Select an option: ");
+            String choice = scanner.nextLine();
+
+            switch (choice) {
+                case "1" -> BmiCalculator.evaluateBMIWithUnitChoice(scanner);
+                case "2" -> CalorieGoalRecommender.recommendCalorieGoal(scanner);
+                case "3" -> IngredientSwapper.suggestSwaps(RECIPE_FILE);
+                case "4" -> HealthChallengeProvider.showRandomChallenge();
+                case "0" -> back = true;
+                default -> System.out.println("❌ Invalid option.");
+            }
+        }
+    }
+
+    private static void accountMenu(Scanner scanner) {
+        boolean back = false;
+        while (!back) {
+            System.out.println("\n🙋 Account Options");
+            System.out.println("1. Logout");
+            System.out.println("0. Back to Main Menu");
+            System.out.print("Select an option: ");
+            String choice = scanner.nextLine();
+
+            switch (choice) {
+                case "1" -> {
                     loggedInUser = null;
                     System.out.println("🔓 Logged out.");
-                    inMenu = false;
+                    back = true;
                 }
-                case "0" -> {
-                    System.out.println("👋 Goodbye!");
-                    System.exit(0);
-                }
+                case "0" -> back = true;
                 default -> System.out.println("❌ Invalid option.");
             }
         }
@@ -141,6 +186,7 @@ public class NutriSync {
         System.out.print("↩️ Press ENTER to return to menu...");
         new Scanner(System.in).nextLine();
     }
+
     private static void searchRecipes(Scanner scanner) {
         if (loggedInUser == null) {
             System.out.println("🚫 You must be logged in to search recipes.");
@@ -152,6 +198,8 @@ public class NutriSync {
         System.out.println("\n🔎 Search Recipes By:");
         System.out.println("1. Name");
         System.out.println("2. Ingredient");
+        System.out.println("3. Type");
+        System.out.println("4. Under a Specific Calorie Goal");
         System.out.print("Select an option: ");
         String option = scanner.nextLine();
 
@@ -163,6 +211,13 @@ public class NutriSync {
             results = searcher.searchByName(keyword);
         } else if (option.equals("2")) {
             results = searcher.searchByIngredient(keyword);
+        } else if (option.equals("3")) {
+            results = searcher.searchByType(keyword);
+        } else if (option.equals("4")) {
+            System.out.print("Enter maximum calorie limit: ");
+            int limit = Integer.parseInt(scanner.nextLine());
+            results = searcher.searchByCalorie(limit);
+
         } else {
             System.out.println("❌ Invalid option.");
             return;
@@ -181,5 +236,4 @@ public class NutriSync {
         System.out.print("↩️ Press ENTER to return to menu...");
         scanner.nextLine();
     }
-
 }

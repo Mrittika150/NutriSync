@@ -21,7 +21,18 @@ public class RecipeSearcher {
                 matchedRecipes.add(recipe);
             }
         }
+        return matchedRecipes;
+    }
+    public List<Recipe> searchByType(String typeKeyword) {
+        List<Recipe> allRecipes = RecipeManager.loadRecipesFromTextFile(recipeFilePath);
+        List<Recipe> matchedRecipes = new ArrayList<>();
+        typeKeyword = typeKeyword.toLowerCase();
 
+        for (Recipe recipe : allRecipes) {
+            if (recipe.gettype().toLowerCase().contains(typeKeyword)) {
+                matchedRecipes.add(recipe);
+            }
+        }
         return matchedRecipes;
     }
 
@@ -40,5 +51,17 @@ public class RecipeSearcher {
         }
 
         return matchedRecipes;
+    }
+    public List<Recipe> searchByCalorie(int maxCalories) {
+        List<Recipe> allRecipes = RecipeManager.loadRecipesFromTextFile(recipeFilePath);
+        List<Recipe> calorieMatched = new ArrayList<>();
+
+        for (Recipe recipe : allRecipes) {
+            if (recipe.getCalories() <= maxCalories) {
+                calorieMatched.add(recipe);
+            }
+        }
+
+        return calorieMatched;
     }
 }
