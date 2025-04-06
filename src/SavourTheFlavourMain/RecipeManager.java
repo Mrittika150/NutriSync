@@ -203,6 +203,84 @@ public class RecipeManager {
 
         return recipes;
     }
+    public static void editRecipe(Scanner scanner) {
+        List<Recipe> recipes = loadRecipesFromTextFile("recipes.txt");
+
+        if (recipes.isEmpty()) {
+            System.out.println("📭 No recipes to edit.");
+            return;
+        }
+
+        for (int i = 0; i < recipes.size(); i++) {
+            System.out.println((i + 1) + ". " + recipes.get(i).getname());
+        }
+
+        System.out.print("Enter the number of the recipe to edit: ");
+        int index = Integer.parseInt(scanner.nextLine()) - 1;
+
+        if (index < 0 || index >= recipes.size()) {
+            System.out.println("❌ Invalid selection.");
+            return;
+        }
+
+        Recipe oldRecipe = recipes.get(index);
+        System.out.println("Editing Recipe: " + oldRecipe.getname());
+
+        System.out.print("Enter new name (leave blank to keep '" + oldRecipe.getname() + "'): ");
+        String name = scanner.nextLine();
+        if (name.isBlank()) name = oldRecipe.getname();
+
+        System.out.print("Enter new type (leave blank to keep '" + oldRecipe.gettype() + "'): ");
+        String type = scanner.nextLine();
+        if (type.isBlank()) type = oldRecipe.gettype();
+
+        System.out.print("Enter new calories (or -1 to keep " + oldRecipe.getCalories() + "): ");
+        int calories = Integer.parseInt(scanner.nextLine());
+        if (calories < 0) calories = oldRecipe.getCalories();
+
+        Recipe newRecipe = new Recipe(name, type, calories, oldRecipe.getIngredients(), oldRecipe.getsteps());
+        recipes.set(index, newRecipe);
+
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("recipes.ser"))) {
+            out.writeObject(recipes);
+            System.out.println("✅ Recipe updated successfully.");
+        } catch (IOException e) {
+            System.out.println("❌ Failed to update recipe.");
+            e.printStackTrace();
+        }
+    }
+
+    public static void deleteRecipe(Scanner scanner) {
+        List<Recipe> recipes = loadRecipesFromTextFile("recipes.txt");
+
+        if (recipes.isEmpty()) {
+            System.out.println("📭 No recipes to delete.");
+            return;
+        }
+
+        for (int i = 0; i < recipes.size(); i++) {
+            System.out.println((i + 1) + ". " + recipes.get(i).getname());
+        }
+
+        System.out.print("Enter the number of the recipe to delete: ");
+        int index = Integer.parseInt(scanner.nextLine()) - 1;
+
+        if (index < 0 || index >= recipes.size()) {
+            System.out.println("❌ Invalid selection.");
+            return;
+        }
+
+        Recipe removed = recipes.remove(index);
+
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("recipes.ser"))) {
+            out.writeObject(recipes);
+            System.out.println("🗑️ Deleted: " + removed.getname());
+        } catch (IOException e) {
+            System.out.println("❌ Failed to delete recipe.");
+            e.printStackTrace();
+        }
+    }
+
 
 
 

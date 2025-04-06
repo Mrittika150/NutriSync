@@ -105,6 +105,8 @@ public class NutriSync {
             System.out.println("1. Add New Recipe");
             System.out.println("2. View All Recipes");
             System.out.println("3. Search Recipes");
+            System.out.println("4. Edit a Recipe");
+            System.out.println("5. Delete a Recipe");
             System.out.println("0. Back to Main Menu");
             System.out.print("Select an option: ");
             String choice = scanner.nextLine();
@@ -113,6 +115,8 @@ public class NutriSync {
                 case "1" -> addNewRecipeInteractive(scanner);
                 case "2" -> viewRecipes();
                 case "3" -> searchRecipes(scanner);
+                case "4" -> RecipeManager.editRecipe(scanner);
+                case "5" -> RecipeManager.deleteRecipe(scanner);
                 case "0" -> back = true;
                 default -> System.out.println("❌ Invalid option.");
             }
