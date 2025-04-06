@@ -4,7 +4,7 @@ package SavourTheFlavourMain;
 import java.util.*;
 
 public class MealSuggester {
-    public static void suggestMealsWithinCalories(Scanner scanner, String recipeFilePath) {
+    public static void suggestMeals(Scanner scanner, String recipeFilePath) {
         System.out.print("Enter your target calorie limit: ");
         int target = Integer.parseInt(scanner.nextLine());
 

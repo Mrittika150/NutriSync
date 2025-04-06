@@ -86,7 +86,11 @@ public class NutriSync {
             System.out.println("2. View All Recipes");
             System.out.println("3. Search Recipes");
             System.out.println("4. Check BMI");
-            System.out.println("5. Logout");
+            System.out.println("5. Get Calorie Goal");
+            System.out.println("6. Suggest Meals by Calorie Goal");
+            System.out.println("7. Show Healthier Ingredient Swaps");
+            System.out.println("8. Daily Health Challenge");
+            System.out.println("9. Logout");
             System.out.println("0. Exit");
             System.out.print("Select an option: ");
             String choice = scanner.nextLine();
@@ -96,7 +100,11 @@ public class NutriSync {
                 case "2" -> viewRecipes();
                 case "3" -> searchRecipes(scanner);
                 case "4" -> BmiCalculator.evaluateBMIWithUnitChoice(scanner);
-                case "5" -> {
+                case "5" -> CalorieGoalRecommender.recommendCalorieGoal(scanner);
+                case "6" -> MealSuggester.suggestMeals(scanner,RECIPE_FILE);
+                case "7" -> IngredientSwapper.suggestSwaps(RECIPE_FILE);
+                case "8" -> HealthChallengeProvider.showRandomChallenge();
+                case "9" -> {
                     loggedInUser = null;
                     System.out.println("🔓 Logged out.");
                     inMenu = false;
