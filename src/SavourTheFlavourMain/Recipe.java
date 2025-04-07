@@ -37,17 +37,23 @@ public class Recipe implements Serializable {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("🍽️ Recipe: ").append(name).append("\n");
-        sb.append("Type: ").append(type).append(" | Calories: ").append(calories).append("\n");
-        sb.append("Ingredients:\n");
+        sb.append("=".repeat(30)).append("\n");
+        sb.append("🍽️  RECIPE: ").append(name).append("\n");
+        sb.append("📂 Type: ").append(type).append(" | 🔥 Calories: ").append(calories).append("\n");
+        sb.append("-".repeat(30)).append("\n");
+        sb.append("🥕 Ingredients:\n");
         for (Ingredient ing : ingredients) {
-            sb.append(" - ").append(ing.toString()).append("\n");
+            String status = ing.isHealthy() ? "Healthy" : "Unhealthy (Swap: " + ing.getHealthierAlternative() + ")";
+            sb.append(" - ").append(ing.getName()).append(", ").append(ing.getQuantity()).append(" ").append(ing.getUnit()).append(" (").append(status).append(")\n");
         }
-        sb.append("Steps:\n");
+        sb.append("-".repeat(30)).append("\n");
+        sb.append("📋 Steps:\n");
         int count = 1;
         for (String step : steps) {
             sb.append(" ").append(count++).append(". ").append(step).append("\n");
         }
+        sb.append("=".repeat(30));
         return sb.toString();
     }
+
 }

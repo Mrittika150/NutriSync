@@ -9,9 +9,17 @@ public class NutriSync {
     private static final String RECIPE_FILE = "recipes.txt";
 
     private static User loggedInUser = null;
+    public static void showBanner() {
+        System.out.println("+============================+");
+        System.out.println("|          NutriSync         |");
+        System.out.println("|   Nourish. Track. Thrive.  |");
+        System.out.println("+============================+\n");
+    }
+
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        showBanner();
         boolean running = true;
 
         while (running) {
