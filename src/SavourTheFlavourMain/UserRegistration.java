@@ -1,9 +1,23 @@
 package SavourTheFlavourMain;
 
 import java.io.*;
+import java.util.Scanner;
 
 public class UserRegistration {
     private  static final String File_Name = "User_Info.txt";
+    public static User getUserInputForRegistration(Scanner scanner) {
+        System.out.print("Choose a username: ");
+        String username = scanner.nextLine();
+
+        System.out.print("Choose a password: ");
+        String password = scanner.nextLine();
+
+        System.out.print("Enter email: ");
+        String email = scanner.nextLine();
+
+        return new User(username, password, email);
+    }
+
 
     public static boolean registerUser(User user) {
         if(emailExists(user.getEmail())){
