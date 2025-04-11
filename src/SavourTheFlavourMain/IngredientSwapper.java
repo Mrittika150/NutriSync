@@ -4,7 +4,7 @@ import java.util.*;
 
 public class IngredientSwapper {
     public static  void suggestSwaps(String recipeFilePath){
-        List<Recipe> recipes = RecipeManager.loadRecipesFromTextFile(recipeFilePath);
+        List<Recipe> recipes = RecipeManager.loadRecipes(recipeFilePath);
         for (Recipe recipe : recipes) {
             boolean hasUnhealthy = false;
             StringBuilder stringBuilder = new StringBuilder();

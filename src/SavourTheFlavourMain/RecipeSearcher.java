@@ -12,7 +12,7 @@ public class RecipeSearcher {
     }
 
     public List<Recipe> searchByName(String keyword) {
-        List<Recipe> allRecipes = RecipeManager.loadRecipesFromTextFile(recipeFilePath);
+        List<Recipe> allRecipes = RecipeManager.loadRecipes(recipeFilePath);
         List<Recipe> matchedRecipes = new ArrayList<>();
         keyword = keyword.toLowerCase();
 
@@ -24,7 +24,7 @@ public class RecipeSearcher {
         return matchedRecipes;
     }
     public List<Recipe> searchByType(String typeKeyword) {
-        List<Recipe> allRecipes = RecipeManager.loadRecipesFromTextFile(recipeFilePath);
+        List<Recipe> allRecipes = RecipeManager.loadRecipes(recipeFilePath);
         List<Recipe> matchedRecipes = new ArrayList<>();
         typeKeyword = typeKeyword.toLowerCase();
 
@@ -37,7 +37,7 @@ public class RecipeSearcher {
     }
 
     public List<Recipe> searchByIngredient(String ingredientKeyword) {
-        List<Recipe> allRecipes = RecipeManager.loadRecipesFromTextFile(recipeFilePath);
+        List<Recipe> allRecipes = RecipeManager.loadRecipes(recipeFilePath);
         List<Recipe> matchedRecipes = new ArrayList<>();
         ingredientKeyword = ingredientKeyword.toLowerCase();
 
@@ -53,7 +53,7 @@ public class RecipeSearcher {
         return matchedRecipes;
     }
     public List<Recipe> searchByCalorie(int maxCalories) {
-        List<Recipe> allRecipes = RecipeManager.loadRecipesFromTextFile(recipeFilePath);
+        List<Recipe> allRecipes = RecipeManager.loadRecipes(recipeFilePath);
         List<Recipe> calorieMatched = new ArrayList<>();
 
         for (Recipe recipe : allRecipes) {

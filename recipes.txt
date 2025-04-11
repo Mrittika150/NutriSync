@@ -5,7 +5,7 @@ Calories: 100
 
 Ingredients (2):
  - Eggs, 1.0  (Healthy)
- - oil, 2.0 tbls (Unhealthy (Swap: avacado oil))
+ - oil, 2.0 tbls (Unhealthy (Swap: avacado oil)))
 
 Steps (1):
  1. Stir Fry the eggs
@@ -16,10 +16,10 @@ Type: Breakfast
 Calories: 300
 
 Ingredients (4):
- - Flour, 1.0 cup (Unhealthy (Swap: Gluten Free Flour))
+ - Flour, 1.0 cup (Unhealthy (Swap: Gluten Free Flour)))
  - Eggs, 2.0  (Healthy)
  - Milk, 4.0 tbsp (Healthy)
- - Sugar, 3.0 tbsp (Unhealthy (Swap: Honey))
+ - Sugar, 3.0 tbsp (Unhealthy (Swap: Honey)))
 
 Steps (4):
  1. mix flour and milk together
@@ -87,12 +87,12 @@ Type: Lunch
 Calories: 700
 
 Ingredients (6):
- - Ground beef, 6.0 oz (Unhealthy (Swap: Lean turkey patty))
- - Burger bun, 1.0 (Unhealthy (Swap: Whole-grain bun))
- - Cheddar cheese, 1.0 slice (Unhealthy (Swap: Low-fat cheese))
+ - Ground beef, 6.0 oz (Unhealthy (Swap: Lean turkey patty)))
+ - Burger bun, 1.0 (Unhealthy (Unhealthy (Swap: Whole-grain bun)))
+ - Cheddar cheese, 1.0 slice (Unhealthy (Swap: Low-fat cheese)))
  - Lettuce, 1.0 leaf (Healthy)
  - Tomato, 2.0 slices (Healthy)
- - Mayonnaise, 1.0 tbsp (Unhealthy (Swap: Greek yogurt))
+ - Mayonnaise, 1.0 tbsp (Unhealthy (Swap: Greek yogurt)))
 
 Steps (5):
  1. Form beef into a patty and season.
@@ -120,3 +120,4 @@ Steps (3):
  1. Combine quinoa, black beans, corn, tomatoes, onion, and cilantro.
  2. Mix lime juice and olive oil in a small bowl.
  3. Pour dressing over salad and toss well.
+

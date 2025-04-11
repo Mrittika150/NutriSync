@@ -4,7 +4,6 @@ import java.io.*;
 import java.util.*;
 
 public class RecipeManager {
-    private static final String FILE_NAME = "recipes.ser";
 
     public static void addNewRecipe() {
         Scanner scanner = new Scanner(System.in);
@@ -54,73 +53,12 @@ public class RecipeManager {
         }
 
         Recipe recipe = new Recipe(name, type, calories, ingredients, steps);
-        saveRecipe(recipe);
-        System.out.println("✅ Recipe added successfully!");
+        saveRecipes(recipe, "recipes.txt");
+        System.out.println(" Recipe added successfully!");
     }
 
-    private static void saveRecipe(Recipe recipe) {
-        List<Recipe> recipeList = loadRecipes();
-        recipeList.add(recipe);
 
-        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
-            out.writeObject(recipeList);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @SuppressWarnings("unchecked")
-    private static List<Recipe> loadRecipes() {
-        File file = new File(FILE_NAME);
-        if (!file.exists()) return new ArrayList<>();
-
-        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))) {
-            return (List<Recipe>) in.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-            return new ArrayList<>();
-        }
-    }
-
-    public static void viewAllRecipes() {
-        List<Recipe> recipeList = loadRecipesFromTextFile("recipes.txt");
-        if (recipeList.isEmpty()) {
-            System.out.println(" No recipes found.");
-            return;
-        }
-
-        System.out.println(" All Recipes:");
-        for (Recipe r : recipeList) {
-            System.out.println("------------");
-            System.out.println(r);
-        }
-    }
-
-    public static void saveRecipeToFile(Recipe recipe, String fileName) {
-        List<Recipe> recipeList = loadRecipesFromFile(fileName);
-        recipeList.add(recipe);
-
-        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fileName))) {
-            out.writeObject(recipeList);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @SuppressWarnings("unchecked")
-    public static List<Recipe> loadRecipesFromFile(String fileName) {
-        File file = new File(fileName);
-        if (!file.exists()) return new ArrayList<>();
-
-        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))) {
-            return (List<Recipe>) in.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-            return new ArrayList<>();
-        }
-    }
-
-    public static void saveRecipeToTextFile(Recipe recipe, String fileName) {
+    public static void saveRecipes(Recipe recipe, String fileName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))) {
             writer.write("#Recipe\n");
             writer.write("Name: " + recipe.getname() + "\n");
@@ -139,14 +77,14 @@ public class RecipeManager {
                 writer.write(" " + stepNum++ + ". " + step + "\n");
             }
 
-            writer.write("\n"); // extra space between recipes
+            writer.write("\n");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
 
-    public static List<Recipe> loadRecipesFromTextFile(String fileName) {
+    public static List<Recipe> loadRecipes(String fileName) {
         List<Recipe> recipes = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
@@ -157,17 +95,17 @@ public class RecipeManager {
                     String type = reader.readLine().split(": ")[1].trim();
                     int calories = Integer.parseInt(reader.readLine().split(": ")[1].trim());
 
-                    reader.readLine(); // skip blank line
+                    reader.readLine();
 
                     int ingCount = Integer.parseInt(reader.readLine().replaceAll("[^0-9]", ""));
                     List<Ingredient> ingredients = new ArrayList<>();
 
                     for (int i = 0; i < ingCount; i++) {
-                        String ingLine = reader.readLine().trim().substring(2); // remove " - "
+                        String ingLine = reader.readLine().trim().substring(2);
                         String[] parts = ingLine.split(", ");
                         String ingName = parts[0];
 
-                        // Extract quantity and unit
+
                         String[] qtyUnit = parts[1].split(" ");
                         double qty = Double.parseDouble(qtyUnit[0]);
                         String unit = qtyUnit[1];
@@ -184,7 +122,7 @@ public class RecipeManager {
                         ingredients.add(new Ingredient(ingName, qty, unit, isHealthy, alt));
                     }
 
-                    reader.readLine(); // skip blank line
+                    reader.readLine();
 
                     int stepCount = Integer.parseInt(reader.readLine().replaceAll("[^0-9]", ""));
                     List<String> steps = new ArrayList<>();
@@ -203,11 +141,26 @@ public class RecipeManager {
 
         return recipes;
     }
+
+    public static void viewAllRecipes() {
+        List<Recipe> recipeList = loadRecipes("recipes.txt");
+        if (recipeList.isEmpty()) {
+            System.out.println(" No recipes found.");
+            return;
+        }
+
+        System.out.println(" All Recipes:");
+        for (Recipe r : recipeList) {
+            System.out.println("------------");
+            System.out.println(r);
+        }
+    }
+
     public static void editRecipe(Scanner scanner) {
-        List<Recipe> recipes = loadRecipesFromTextFile("recipes.txt");
+        List<Recipe> recipes = loadRecipes("recipes.txt");
 
         if (recipes.isEmpty()) {
-            System.out.println("📭 No recipes to edit.");
+            System.out.println(" No recipes to edit.");
             return;
         }
 
@@ -219,7 +172,7 @@ public class RecipeManager {
         int index = Integer.parseInt(scanner.nextLine()) - 1;
 
         if (index < 0 || index >= recipes.size()) {
-            System.out.println("❌ Invalid selection.");
+            System.out.println(" Invalid selection.");
             return;
         }
 
@@ -241,20 +194,15 @@ public class RecipeManager {
         Recipe newRecipe = new Recipe(name, type, calories, oldRecipe.getIngredients(), oldRecipe.getsteps());
         recipes.set(index, newRecipe);
 
-        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("recipes.ser"))) {
-            out.writeObject(recipes);
-            System.out.println("✅ Recipe updated successfully.");
-        } catch (IOException e) {
-            System.out.println("❌ Failed to update recipe.");
-            e.printStackTrace();
-        }
+        saveAllRecipesToTextFile(recipes, "recipes.txt");
+        System.out.println(" Recipe updated successfully.");
     }
 
     public static void deleteRecipe(Scanner scanner) {
-        List<Recipe> recipes = loadRecipesFromTextFile("recipes.txt");
+        List<Recipe> recipes = loadRecipes("recipes.txt");
 
         if (recipes.isEmpty()) {
-            System.out.println("📭 No recipes to delete.");
+            System.out.println(" No recipes to delete.");
             return;
         }
 
@@ -266,22 +214,22 @@ public class RecipeManager {
         int index = Integer.parseInt(scanner.nextLine()) - 1;
 
         if (index < 0 || index >= recipes.size()) {
-            System.out.println("❌ Invalid selection.");
+            System.out.println(" Invalid selection.");
             return;
         }
 
         Recipe removed = recipes.remove(index);
+        saveAllRecipesToTextFile(recipes, "recipes.txt");
+        System.out.println(" Deleted: " + removed.getname());
+    }
 
-        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("recipes.ser"))) {
-            out.writeObject(recipes);
-            System.out.println("🗑️ Deleted: " + removed.getname());
+    private static void saveAllRecipesToTextFile(List<Recipe> recipes, String fileName) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            for (Recipe recipe : recipes) {
+                saveRecipes(recipe, fileName);
+            }
         } catch (IOException e) {
-            System.out.println("❌ Failed to delete recipe.");
             e.printStackTrace();
         }
     }
-
-
-
-
 }
