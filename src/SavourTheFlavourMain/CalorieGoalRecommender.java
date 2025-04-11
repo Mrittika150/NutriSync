@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class CalorieGoalRecommender {
     public static void recommendCalorieGoal(Scanner scanner) {
-        System.out.println("\n🎯 Let's calculate your daily calorie goal!");
+        System.out.println("\n Let's calculate your daily calorie goal!");
 
         System.out.print("Enter your age: ");
         int age = Integer.parseInt(scanner.nextLine());

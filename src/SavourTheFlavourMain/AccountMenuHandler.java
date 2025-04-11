@@ -7,7 +7,7 @@ public class AccountMenuHandler {
     public static void handle(Scanner scanner) {
         boolean back = false;
         while (!back) {
-            System.out.println("\n🙋 Account Options");
+            System.out.println("\n Account Options");
             System.out.println("1. Logout");
             System.out.println("0. Back to Main Menu");
             System.out.print("Select an option: ");
@@ -19,7 +19,7 @@ public class AccountMenuHandler {
                     back = true;
                 }
                 case "0" -> back = true;
-                default -> System.out.println("❌ Invalid option.");
+                default -> System.out.println(" Invalid option.");
             }
         }
     }

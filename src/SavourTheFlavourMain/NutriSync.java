@@ -20,7 +20,7 @@ public class NutriSync {
         boolean running = true;
 
         while (running) {
-            System.out.println("\n👋 Welcome to NutriSync!");
+            System.out.println(" Welcome to NutriSync!");
             System.out.println("1. Sign Up");
             System.out.println("2. Log In");
             System.out.println("0. Exit");
@@ -37,24 +37,24 @@ public class NutriSync {
                     String loginResult = UserLogIn.checkLoginStatus(userAttempt);
                     if (loginResult.equals("success")) {
                         loggedInUser = userAttempt;
-                        System.out.println("✅ Welcome " + userAttempt.getUserName() + "!");
+                        System.out.println(" Welcome " + userAttempt.getUserName() + "!");
                         MenuHandler.showMainMenu(scanner, loggedInUser);
                     } else {
-                        System.out.println("❌ " + loginResult);
+                        System.out.println(" " + loginResult);
                     }
                 }
                 case "0" -> {
-                    System.out.println("👋 Goodbye!");
+                    System.out.println(" Goodbye!");
                     running = false;
                 }
-                default -> System.out.println("❌ Invalid option. Try again.");
+                default -> System.out.println(" Invalid option. Try again.");
             }
         }
     }
 
     public static void logout() {
         loggedInUser = null;
-        System.out.println("🔓 Logged out.");
+        System.out.println(" Logged out.");
     }
 
     public static User getLoggedInUser() {

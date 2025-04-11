@@ -16,7 +16,7 @@ public class IngredientSwapper {
                 }
             }
             if(hasUnhealthy){
-                System.out.println("\n🥦 Ingredient Swap Suggestions for: " + recipe.getname());
+                System.out.println("\n Ingredient Swap Suggestions for: " + recipe.getname());
                 System.out.println(stringBuilder);
             }
         }

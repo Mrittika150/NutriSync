@@ -8,7 +8,7 @@ public class MenuHandler {
         boolean inMenu = true;
 
         while (inMenu && user != null) {
-            System.out.println("\n🍴 Main Menu (Logged in as: " + user.getUserName() + ")");
+            System.out.println("\n Main Menu (Logged in as: " + user.getUserName() + ")");
             System.out.println("1. Recipe Management");
             System.out.println("2. Health Tools");
             System.out.println("3. Account Options");
@@ -21,10 +21,10 @@ public class MenuHandler {
                 case "2" -> HealthMenuHandler.handle(scanner);
                 case "3" -> AccountMenuHandler.handle(scanner);
                 case "0" -> {
-                    System.out.println("👋 Goodbye!");
+                    System.out.println(" Goodbye!");
                     System.exit(0);
                 }
-                default -> System.out.println("❌ Invalid option.");
+                default -> System.out.println(" Invalid option.");
             }
         }
     }

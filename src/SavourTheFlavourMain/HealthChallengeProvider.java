@@ -17,8 +17,8 @@ public class HealthChallengeProvider {
     public static void showRandomChallenge() {
         Random random = new Random();
         String challenge = challenges.get(random.nextInt(challenges.size()));
-        System.out.println("\n💪 Today's Health Challenge:");
-        System.out.println("👉 " + challenge);
+        System.out.println("\n Today's Health Challenge:");
+        System.out.println(" " + challenge);
     }
 }
 

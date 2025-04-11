@@ -20,7 +20,7 @@ public class BmiCalculator {
         double bmi = calculateBMI(weightKg, heightCm);
         String category = getBMICategory(bmi);
 
-        System.out.printf("📊 Your BMI is: %.2f (%s)%n", bmi, category);
+        System.out.printf(" Your BMI is: %.2f (%s)%n", bmi, category);
 
         double heightM = heightCm / 100.0;
         double normalMin = 18.5 * heightM * heightM;
@@ -29,13 +29,13 @@ public class BmiCalculator {
         switch (category) {
             case "Underweight" -> {
                 double gainNeeded = normalMin - weightKg;
-                System.out.printf("⚠️ You are underweight. You should gain at least %.1f kg to reach a normal BMI.%n", gainNeeded);
+                System.out.printf(" You are underweight. You should gain at least %.1f kg to reach a normal BMI.%n", gainNeeded);
             }
             case "Overweight", "Obese" -> {
                 double loseNeeded = weightKg - normalMax;
-                System.out.printf("⚠️ You are %s. You should lose at least %.1f kg to reach a normal BMI.%n", category.toLowerCase(), loseNeeded);
+                System.out.printf(" You are %s. You should lose at least %.1f kg to reach a normal BMI.%n", category.toLowerCase(), loseNeeded);
             }
-            default -> System.out.println("✅ You are fit! Keep it up!");
+            default -> System.out.println(" You are fit! Keep it up!");
         }
     }
 
@@ -68,7 +68,7 @@ public class BmiCalculator {
             int totalInches = feet * 12 + inches;
             heightCm = totalInches * 2.54;
         } else {
-            System.out.println("❌ Invalid choice.");
+            System.out.println(" Invalid choice.");
             return;
         }
 

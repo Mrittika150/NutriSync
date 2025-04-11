@@ -8,7 +8,7 @@ public class RecipeMenuHandler {
     public static void handle(Scanner scanner, User user) {
         boolean back = false;
         while (!back) {
-            System.out.println("\n👨‍🍳 Recipe Management");
+            System.out.println(" Recipe Management");
             System.out.println("1. Add New Recipe");
             System.out.println("2. View All Recipes");
             System.out.println("3. Search Recipes");
@@ -25,10 +25,10 @@ public class RecipeMenuHandler {
                 case "4" -> RecipeManager.editRecipe(scanner);
                 case "5" -> RecipeManager.deleteRecipe(scanner);
                 case "0" -> back = true;
-                default -> System.out.println("❌ Invalid option.");
+                default -> System.out.println(" Invalid option.");
             }
 
-            System.out.print("↩️ Press ENTER to return...");
+            System.out.print(" Press ENTER to return...");
             scanner.nextLine();
         }
     }
@@ -36,7 +36,7 @@ public class RecipeMenuHandler {
     private static void searchRecipes(Scanner scanner) {
         RecipeSearcher searcher = new RecipeSearcher("recipes.txt");
 
-        System.out.println("\n🔎 Search Recipes By:");
+        System.out.println(" Search Recipes By:");
         System.out.println("1. Name");
         System.out.println("2. Ingredient");
         System.out.println("3. Type");
@@ -59,14 +59,14 @@ public class RecipeMenuHandler {
             int limit = Integer.parseInt(scanner.nextLine());
             results = searcher.searchByCalorie(limit);
         } else {
-            System.out.println("❌ Invalid option.");
+            System.out.println(" Invalid option.");
             return;
         }
 
         if (results.isEmpty()) {
-            System.out.println("📭 No matching recipes found.");
+            System.out.println(" No matching recipes found.");
         } else {
-            System.out.println("\n🍽️ Matching Recipes:\n");
+            System.out.println("\n Matching Recipes:\n");
             for (Recipe recipe : results) {
                 System.out.println(recipe);
                 System.out.println("-------------------------------------------------");

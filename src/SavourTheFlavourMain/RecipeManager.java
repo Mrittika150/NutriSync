@@ -85,11 +85,11 @@ public class RecipeManager {
     public static void viewAllRecipes() {
         List<Recipe> recipeList = loadRecipesFromTextFile("recipes.txt");
         if (recipeList.isEmpty()) {
-            System.out.println("📭 No recipes found.");
+            System.out.println(" No recipes found.");
             return;
         }
 
-        System.out.println("📚 All Recipes:");
+        System.out.println(" All Recipes:");
         for (Recipe r : recipeList) {
             System.out.println("------------");
             System.out.println(r);
