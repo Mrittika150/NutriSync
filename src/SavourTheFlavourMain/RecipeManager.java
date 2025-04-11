@@ -160,7 +160,7 @@ public class RecipeManager {
         List<Recipe> recipes = loadRecipes("recipes.txt");
 
         if (recipes.isEmpty()) {
-            System.out.println(" No recipes to edit.");
+            System.out.println("No recipes to edit.");
             return;
         }
 
@@ -172,7 +172,7 @@ public class RecipeManager {
         int index = Integer.parseInt(scanner.nextLine()) - 1;
 
         if (index < 0 || index >= recipes.size()) {
-            System.out.println(" Invalid selection.");
+            System.out.println("Invalid selection.");
             return;
         }
 
@@ -190,13 +190,55 @@ public class RecipeManager {
         System.out.print("Enter new calories (or -1 to keep " + oldRecipe.getCalories() + "): ");
         int calories = Integer.parseInt(scanner.nextLine());
         if (calories < 0) calories = oldRecipe.getCalories();
+        
+        System.out.print("Do you want to add new ingredients? (yes/no): ");
+        if (scanner.nextLine().equalsIgnoreCase("yes")) {
+            System.out.print("How many new ingredients to add? ");
+            int newCount = Integer.parseInt(scanner.nextLine());
 
-        Recipe newRecipe = new Recipe(name, type, calories, oldRecipe.getIngredients(), oldRecipe.getsteps());
-        recipes.set(index, newRecipe);
+            for (int i = 0; i < newCount; i++) {
+                System.out.println("New Ingredient " + (i + 1) + ":");
+                System.out.print("Name: ");
+                String ingName = scanner.nextLine();
+
+                System.out.print("Quantity: ");
+                double quantity = Double.parseDouble(scanner.nextLine());
+
+                System.out.print("Unit: ");
+                String unit = scanner.nextLine();
+
+                System.out.print("Is this healthy? (yes/no): ");
+                boolean isHealthy = scanner.nextLine().equalsIgnoreCase("yes");
+
+                String alt = "";
+                if (!isHealthy) {
+                    System.out.print("Suggest a healthier alternative: ");
+                    alt = scanner.nextLine();
+                }
+
+                oldRecipe.getIngredients().add(new Ingredient(ingName, quantity, unit, isHealthy, alt));
+            }
+        }
+
+
+        System.out.print("Do you want to add new steps? (yes/no): ");
+        if (scanner.nextLine().equalsIgnoreCase("yes")) {
+            System.out.print("How many new steps to add? ");
+            int stepCount = Integer.parseInt(scanner.nextLine());
+
+            for (int i = 0; i < stepCount; i++) {
+                System.out.print("Step " + (oldRecipe.getsteps().size() + 1) + ": ");
+                oldRecipe.getsteps().add(scanner.nextLine());
+            }
+        }
+
+        Recipe updatedRecipe = new Recipe(name, type, calories, oldRecipe.getIngredients(), oldRecipe.getsteps());
+        recipes.set(index, updatedRecipe);
 
         saveAllRecipesToTextFile(recipes, "recipes.txt");
-        System.out.println(" Recipe updated successfully.");
+        System.out.println("Recipe updated successfully.");
     }
+
 
     public static void deleteRecipe(Scanner scanner) {
         List<Recipe> recipes = loadRecipes("recipes.txt");
