@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class AccountMenuHandler {
 
-    public static void handle(Scanner scanner) {
+    public static void AccountMenuHandle(Scanner scanner) {
         boolean back = false;
         while (!back) {
             System.out.println("\n Account Options");

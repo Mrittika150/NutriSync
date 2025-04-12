@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class RecipeMenuHandler {
 
-    public static void handle(Scanner scanner, User user) {
+    public static void RecipeMenuHandle(Scanner scanner, User user) {
         boolean back = false;
         while (!back) {
             System.out.println(" Recipe Management");

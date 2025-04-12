@@ -1,9 +1,8 @@
 package SavourTheFlavourMain;
 
-import java.io.Serializable;
 import java.util.List;
 
-public class Recipe implements Serializable {
+public class Recipe  {
     private String name;
     private String type;
     private int calories;

@@ -48,7 +48,7 @@ public class CalorieGoalRecommender {
             default -> maintenanceCalories;
         };
 
-        System.out.printf("\uD83C\uDF1F Your estimated daily calorie goal is: %.0f calories.%n", goalCalories);
+        System.out.printf(" Your estimated daily calorie goal is: %.0f calories.%n", goalCalories);
     }
 }
 

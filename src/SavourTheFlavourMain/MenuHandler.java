@@ -17,9 +17,9 @@ public class MenuHandler {
             String choice = scanner.nextLine();
 
             switch (choice) {
-                case "1" -> RecipeMenuHandler.handle(scanner, user);
-                case "2" -> HealthMenuHandler.handle(scanner);
-                case "3" -> AccountMenuHandler.handle(scanner);
+                case "1" -> RecipeMenuHandler.RecipeMenuHandle(scanner, user);
+                case "2" -> HealthMenuHandler.HealthMenuHandle(scanner);
+                case "3" -> AccountMenuHandler.AccountMenuHandle(scanner);
                 case "0" -> {
                     System.out.println(" Goodbye!");
                     System.exit(0);

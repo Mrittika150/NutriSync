@@ -57,7 +57,7 @@ public class UserRegistration {
     }
     private static boolean fileEndsWithNewline(File file) throws IOException {
         try (RandomAccessFile raf = new RandomAccessFile(file, "r")) {
-            if (raf.length() == 0) return true; // empty file is fine
+            if (raf.length() == 0) return true;
             raf.seek(raf.length() - 1);
             int lastByte = raf.read();
             return lastByte == '\n';

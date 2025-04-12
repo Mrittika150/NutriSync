@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class HealthMenuHandler {
 
-    public static void handle(Scanner scanner) {
+    public static void HealthMenuHandle(Scanner scanner) {
         boolean back = false;
         while (!back) {
             System.out.println("\n Health Tools");

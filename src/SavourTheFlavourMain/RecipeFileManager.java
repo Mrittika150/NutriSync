@@ -70,7 +70,7 @@ public class RecipeFileManager {
                     String type = reader.readLine().split(": ")[1].trim();
                     int calories = Integer.parseInt(reader.readLine().split(": ")[1].trim());
 
-                    reader.readLine(); // blank line
+                    reader.readLine();
 
                     int ingCount = Integer.parseInt(reader.readLine().replaceAll("[^0-9]", ""));
                     List<Ingredient> ingredients = new ArrayList<>();
@@ -91,7 +91,7 @@ public class RecipeFileManager {
                         ingredients.add(new Ingredient(ingName, qty, unit, isHealthy, alt));
                     }
 
-                    reader.readLine(); // blank line
+                    reader.readLine();
                     int stepCount = Integer.parseInt(reader.readLine().replaceAll("[^0-9]", ""));
                     List<String> steps = new ArrayList<>();
                     for (int i = 0; i < stepCount; i++) {
