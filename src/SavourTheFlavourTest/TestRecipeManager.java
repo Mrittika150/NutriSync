@@ -1,4 +1,5 @@
 package SavourTheFlavourTest;
+import SavourTheFlavourMain.RecipeFileManager;
 import SavourTheFlavourMain.RecipeManager;
 import SavourTheFlavourMain.Recipe;
 import SavourTheFlavourMain.Ingredient;
@@ -32,8 +33,8 @@ public class TestRecipeManager {
                 List.of("Boil water", "Add oats and sugar", "Cook for 5 mins")
         );
 
-        RecipeManager.saveRecipes(r, TEST_TXT);
-        List<Recipe> loaded = RecipeManager.loadRecipes(TEST_TXT);
+        RecipeFileManager.saveRecipes(r, TEST_TXT);
+        List<Recipe> loaded = RecipeFileManager.loadRecipes(TEST_TXT);
 
         assertEquals(1, loaded.size());
         Recipe loadedRecipe = loaded.get(0);
@@ -56,10 +57,10 @@ public class TestRecipeManager {
 
         Ingredient i1 = new Ingredient("Bread", 2, "slices", true, "");
         Recipe r = new Recipe("Toast", "Breakfast", 200, List.of(i1), List.of("Toast the bread"));
-        RecipeManager.saveRecipes(r, TEST_TXT);
+        RecipeFileManager.saveRecipes(r, TEST_TXT);
 
 
-        List<Recipe> loaded = RecipeManager.loadRecipes(TEST_TXT);
+        List<Recipe> loaded = RecipeFileManager.loadRecipes(TEST_TXT);
         assertDoesNotThrow(() -> {
             for (Recipe recipe : loaded) {
                 System.out.println(recipe.toString());
@@ -75,7 +76,7 @@ public class TestRecipeManager {
         Ingredient i1 = new Ingredient("Apple", 1, "unit", true, "");
         Recipe r = new Recipe("Apple Snack", "Snack", 80, List.of(i1), List.of("Wash apple", "Eat"));
 
-        RecipeManager.saveRecipes(r, TEST_TXT);
+        RecipeFileManager.saveRecipes(r, TEST_TXT);
 
         assertTrue(file.exists());
     }
@@ -85,7 +86,7 @@ public class TestRecipeManager {
         File file = new File(TEST_TXT);
         file.createNewFile();
 
-        List<Recipe> recipes = RecipeManager.loadRecipes(TEST_TXT);
+        List<Recipe> recipes = RecipeFileManager.loadRecipes(TEST_TXT);
         assertNotNull(recipes);
         assertTrue(recipes.isEmpty());
     }
