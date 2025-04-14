@@ -136,3 +136,15 @@ Ingredients (5):
 Steps (1):
  1. Grilled the Chicken
 
+#Recipe
+Name: Espresso
+Type: Breakfast
+Calories: 15
+
+Ingredients (2):
+ - Coffee, 1.0 tsp (Healthy)
+ - Sugar, 2.0 tsp (Unhealthy (Swap: Honey))
+
+Steps (1):
+ 1. Boil Water , then mix the coffee and the sugar
+

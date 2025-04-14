@@ -20,39 +20,49 @@ public class Recipe  {
     public int getCalories() {
         return calories;
     }
-    public String getname(){
+    public String getname() {
         return name;
     }
-    public String gettype(){
+    public String gettype() {
         return type;
     }
-    public List<Ingredient> getIngredients(){
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
-    public List<String> getsteps(){
+    public List<String> getsteps() {
         return steps;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("=".repeat(30)).append("\n");
-        sb.append("  RECIPE: ").append(name).append("\n");
-        sb.append(" Type: ").append(type).append(" |  Calories: ").append(calories).append("\n");
-        sb.append("-".repeat(30)).append("\n");
-        sb.append(" Ingredients:\n");
+        sb.append("\n╔════════════════════════════════════════════════════════════════════╗\n");
+        sb.append(String.format("║ %-66s ║\n", "RECIPE"));
+        sb.append("╠════════════════════════════════════════════════════════════════════╣\n");
+        sb.append(String.format("║ %-15s : %-48s ║\n", "Name", name));
+        sb.append(String.format("║ %-15s : %-48s ║\n", "Type", type));
+        sb.append(String.format("║ %-15s : %-48d ║\n", "Calories", calories));
+        sb.append("╠════════════════════════════════════════════════════════════════════╣\n");
+        sb.append(String.format("║ %-66s ║\n", "Ingredients"));
         for (Ingredient ing : ingredients) {
-            String status = ing.isHealthy() ? "Healthy" : "Unhealthy (Swap: " + ing.getHealthierAlternative() + ")";
-            sb.append(" - ").append(ing.getName()).append(", ").append(ing.getQuantity()).append(" ").append(ing.getUnit()).append(" (").append(status).append(")\n");
+            String status = ing.isHealthy() ? "Healthy" : "Unhealthy → Swap: " + ing.getHealthierAlternative();
+            String line = String.format("─ %-15s, %-6s (%s)", ing.getName(), ing.getQuantity() + " " + ing.getUnit(), status);
+            if (line.length() > 66) {
+                line = line.substring(0, 63) + "...";
+            }
+            sb.append(String.format("║ %-66s ║\n", line));
         }
-        sb.append("-".repeat(30)).append("\n");
-        sb.append(" Steps:\n");
+        sb.append("╠════════════════════════════════════════════════════════════════════╣\n");
+        sb.append(String.format("║ %-66s ║\n", "Steps"));
         int count = 1;
         for (String step : steps) {
-            sb.append(" ").append(count++).append(". ").append(step).append("\n");
+            String stepLine = count++ + ". " + step;
+            if (stepLine.length() > 66) {
+                stepLine = stepLine.substring(0, 63) + "...";
+            }
+            sb.append(String.format("║ %-66s ║\n", stepLine));
         }
-        sb.append("=".repeat(30));
+        sb.append("╚════════════════════════════════════════════════════════════════════╝\n");
         return sb.toString();
     }
-
 }

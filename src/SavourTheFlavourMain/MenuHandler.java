@@ -8,13 +8,14 @@ public class MenuHandler {
         boolean inMenu = true;
 
         while (inMenu && user != null) {
-            System.out.println("\n========================================");
-            System.out.println(" Main Menu (Logged in as: " + user.getUserName() + ")");
-            System.out.println("========================================");
-            System.out.println("1. Recipe Management");
-            System.out.println("2. Health Tools");
-            System.out.println("3. Account Options");
-            System.out.println("0. Exit");
+            System.out.println("╔════════════════════════════════════════════════════════╗");
+            System.out.println("║ Main Menu (Logged in as: " + user.getUserName()+")                          ║");
+            System.out.println("╠════════════════════════════════════════════════════════╣");
+            System.out.println("║1. Recipe Management                                    ║");
+            System.out.println("║2. Health Tools                                         ║");
+            System.out.println("║3. Account Options                                      ║");
+            System.out.println("║0. Exit                                                 ║");
+            System.out.println("╚════════════════════════════════════════════════════════╝");
             System.out.print("\nSelect an option: ");
             String choice = scanner.nextLine();
 

@@ -8,23 +8,27 @@ public class NutriSync {
     private static User loggedInUser = null;
 
     public static void showBanner() {
-        System.out.println("+============================+");
-        System.out.println("|          NutriSync         |");
-        System.out.println("|   Nourish. Track. Thrive.  |");
-        System.out.println("+============================+\n");
+        System.out.println("╔════════════════════════════════════════════════════════╗");
+        System.out.println("║                          NutriSync                     ║");
+        System.out.println("║                    Nourish. Track. Thrive.             ║");
+        System.out.println("╚════════════════════════════════════════════════════════╝");
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         showBanner();
+            System.out.println("══════════════════════════════════════════════════════════");
         boolean running = true;
 
         while (running) {
-            System.out.println(" Welcome to NutriSync!");
-            System.out.println("1. Sign Up");
-            System.out.println("2. Log In");
-            System.out.println("0. Exit");
-            System.out.print("Select an option: ");
+            System.out.println("╔════════════════════════════════════════════════════════╗");
+            System.out.println("║                   Welcome to NutriSync                 ║");
+            System.out.println("╠════════════════════════════════════════════════════════╣");
+            System.out.println("║ 1. Sign Up                                             ║");
+            System.out.println("║ 2. Log In                                              ║");
+            System.out.println("║ 0. Exit                                                ║");
+            System.out.println("╚════════════════════════════════════════════════════════╝");
+            System.out.print(" Select an option: ");
             String input = scanner.nextLine();
 
             switch (input) {

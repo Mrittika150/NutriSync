@@ -85,7 +85,7 @@ public class RecipeFileManager {
                         String alt = "";
                         if (ingLine.contains("Unhealthy (Swap:")) {
                             int start = ingLine.indexOf("Swap: ") + 6;
-                            int end = ingLine.lastIndexOf(")");
+                            int end = ingLine.indexOf(")", start);
                             alt = ingLine.substring(start, end).trim();
                         }
                         ingredients.add(new Ingredient(ingName, qty, unit, isHealthy, alt));
