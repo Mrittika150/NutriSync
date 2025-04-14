@@ -10,7 +10,7 @@ public class RecipeManager {
         System.out.print("Enter recipe name: ");
         String name = scanner.nextLine();
 
-        System.out.print("Enter recipe type (Breakfast, Lunch, Dinner): ");
+        System.out.print("Enter recipe type (Breakfast, Lunch, Dinner,Snacks): ");
         String type = scanner.nextLine();
 
         System.out.print("Enter total calories: ");

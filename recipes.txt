@@ -122,21 +122,6 @@ Steps (3):
  3. Pour dressing over salad and toss well.
 
 #Recipe
-Name: Grilled Chicken Salad
-Type: Dinner
-Calories: 300
-
-Ingredients (5):
- - Chicken Breast, 1.0  (Healthy)
- - Cherry Tomatoes, 2.0  (Healthy)
- - Oil, 1.0 tbsp (Unhealthy (Swap: Olive Oil))
- - Seasonings, 1.0 tsp (Healthy)
- - Mixed Greens, 0.5 Cup (Healthy)
-
-Steps (1):
- 1. Grilled the Chicken
-
-#Recipe
 Name: Espresso
 Type: Breakfast
 Calories: 15
@@ -147,4 +132,34 @@ Ingredients (2):
 
 Steps (1):
  1. Boil Water , then mix the coffee and the sugar
+
+#Recipe
+Name: Cashew Nut Salad
+Type: Dinner
+Calories: 350
+
+Ingredients (4):
+ - Cashew Nuts, 0.5 cup (Healthy)
+ - Chicken Breast, 1.0  (Healthy)
+ - Mixed Vegetables, 1.0 cup (Healthy)
+ - Mixed Sauce, 1.0 tsp (Unhealthy (Swap: Olive oil))
+
+Steps (3):
+ 1. Cut the chicken breast into small cubes
+ 2. Sautee the Chicken and the cashew
+ 3. Mixed the Nuts,chicken,vegetables and the sauce
+
+#Recipe
+Name: French fries
+Type: Snacks
+Calories: 300
+
+Ingredients (3):
+ - Potato, 3.0  (Unhealthy (Swap: Cauliflower))
+ - Oil, 1.0 cup (Unhealthy (Swap: Olive oil))
+ - Seasonings, 1.0 tsp (Healthy)
+
+Steps (2):
+ 1. Cut the potatoes in French Fry cuts
+ 2. Deep fry them and add seasonings 
 
