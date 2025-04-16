@@ -18,8 +18,14 @@ public class HealthMenuHandler {
             String choice = scanner.nextLine();
 
             switch (choice) {
-                case "1" -> BmiCalculator.evaluateBMIWithUnitChoice(scanner);
-                case "2" -> CalorieGoalRecommender.recommendCalorieGoal(scanner);
+                case "1" -> {
+                    BmiCalculator.evaluateBMIWithUnitChoice(scanner);
+                    scanner.nextLine();
+                }
+                case "2" -> {
+                    CalorieGoalRecommender.recommendCalorieGoal(scanner);
+                    scanner.nextLine();
+                }
                 case "3" -> IngredientSwapper.suggestSwaps("recipes.txt");
                 case "4" -> HealthChallengeProvider.showRandomChallenge();
                 case "0" -> back = true;

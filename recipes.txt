@@ -82,26 +82,6 @@ Steps (5):
  5. Pour in soy sauce, mix well, and cook for 2 more minutes.
 
 #Recipe
-Name: Classic Beef Burger
-Type: Lunch
-Calories: 700
-
-Ingredients (6):
- - Ground beef, 6.0 oz (Unhealthy (Swap: Lean turkey patty))
- - Burger bun, 1.0 (Unhealthy (Unhealthy (Swap: Whole-grain bun))
- - Cheddar cheese, 1.0 slice (Unhealthy (Swap: Low-fat cheese))
- - Lettuce, 1.0 leaf (Healthy)
- - Tomato, 2.0 slices (Healthy)
- - Mayonnaise, 1.0 tbsp (Unhealthy (Swap: Greek yogurt))
-
-Steps (5):
- 1. Form beef into a patty and season.
- 2. Grill or pan-fry until desired doneness.
- 3. Add cheese to patty during the last minute to melt.
- 4. Toast the bun.
- 5. Assemble with lettuce, tomato, patty, and mayo.
-
-#Recipe
 Name: Quinoa and Black Bean Salad
 Type: Dinner
 Calories: 350
@@ -150,16 +130,31 @@ Steps (3):
  3. Mixed the Nuts,chicken,vegetables and the sauce
 
 #Recipe
-Name: French fries
-Type: Snacks
-Calories: 300
+Name: Oatmeal
+Type: Breakfast
+Calories: 150
 
 Ingredients (3):
- - Potato, 3.0  (Unhealthy (Swap: Cauliflower))
- - Oil, 1.0 cup (Unhealthy (Swap: Olive oil))
- - Seasonings, 1.0 tsp (Healthy)
+ - Oats, 0.5 cup (Healthy)
+ - Milk, 0.5 cup (Healthy)
+ - Sugar, 2.0 tsp (Unhealthy (Swap: Honey))
 
-Steps (2):
- 1. Cut the potatoes in French Fry cuts
- 2. Deep fry them and add seasonings 
+Steps (3):
+ 1. Mix oats,milk and sugar in a bowl
+ 2. Soak it overnight
+ 3. Garnish it with some almonds(optional)
+
+#Recipe
+Name: Milkshake
+Type: Breakfast
+Calories: 150
+
+Ingredients (4):
+ - Milk, 0.5 cup (Healthy)
+ - Sugar, 2.0 tsp (Unhealthy (Swap: Honey))
+ - White Chocolate, 50.0 gm (Unhealthy (Swap: Dark Chocolate))
+ - Banana, 1.0  (Healthy)
+
+Steps (1):
+ 1. Blend all the ingredients together
 

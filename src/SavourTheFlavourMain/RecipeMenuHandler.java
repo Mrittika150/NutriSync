@@ -26,9 +26,18 @@ public class RecipeMenuHandler {
             switch (choice) {
                 case "1" -> RecipeManager.addNewRecipe();
                 case "2" -> RecipeManager.viewAllRecipes();
-                case "3" -> searchRecipes(scanner);
-                case "4" -> RecipeManager.editRecipe(scanner);
-                case "5" -> RecipeManager.deleteRecipe(scanner);
+                case "3" -> {
+                    searchRecipes(scanner);
+                    scanner.nextLine();
+                }
+                case "4" -> {
+                    RecipeManager.editRecipe(scanner);
+                    scanner.nextLine();
+                }
+                case "5" ->{
+                    RecipeManager.deleteRecipe(scanner);
+                    scanner.nextLine();
+                }
                 case "0" -> back = true;
                 default -> System.out.println("\n Invalid option.");
             }
